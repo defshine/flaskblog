@@ -1,0 +1,7 @@
+*.pyc
+*.orig
+.idea/*
+**/*.log
+*idea*
+*.iml
+
