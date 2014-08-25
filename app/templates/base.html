@@ -1,0 +1,13 @@
+<html>
+    <head>
+        <title>{{title}}-flaskblog</title>
+    </head>
+    <body>
+        <div>flaskblog: <a href='/'>Home</a> </div>
+        {% for message in get_flashed_messages() %}
+            <div class=flash>{{ message }}</div>
+        {% endfor %}
+        {% block content %}
+        {% endblock %}
+    </body>
+</html>
