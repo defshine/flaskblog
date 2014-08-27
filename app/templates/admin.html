@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block content %}
+{%  if user %}
+    <h1>Hello {{user.user_name}}</h1>
+    <a href="/logout">Logout</a>
+{% endif %}
+<div>This admin view</div>
+{% endblock %}

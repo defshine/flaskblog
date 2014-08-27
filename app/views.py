@@ -47,16 +47,22 @@ def login():
         print remember_me
         user = User.query.filter_by(user_name=name).first()
         if user is None:
-            flash('no this user!')
+            flash('No this user !')
             return render_template('login.html', title='Login', form=form)
         else:
             if user.password != password:
-                flash('password error')
+                flash('Password error !')
                 return render_template('login.html', title='Login', form=form)
             else:
                 login_user(user, remember_me)
-                return render_template('index.html', title='Home', user=user)
+                return redirect(url_for('admin'))
     return render_template('login.html', title='Login', form=form)
+
+
+@app.route('/admin')
+@login_required
+def admin():
+    return render_template('admin.html', title='Admin', user=current_user)
 
 
 @app.route('/logout')

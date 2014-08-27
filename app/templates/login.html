@@ -1,19 +1,24 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1>Login</h1>
-<form action="" method="post">
-    <p>Please enter your name<br>
-         {{ form.hidden_tag() }}
-         {{ form.username }}<br>
-         {% for error in form.errors.username %}
-            <span>{{error}}</span>
-         {% endfor %}<br>
-         {{ form.password }}<br>
-         {% for error in form.errors.password %}
-            <span>{{error}}</span>
-         {% endfor %}<br>
-         </p>
-         <p>{{form.remember_me}}Remember Me</p>
-         <p><input type="submit" value="Sign In"></p>
-</form> 
+    <div class="container login-container">
+        <form class="form-signin" role="form" method="post">
+            {% for message in get_flashed_messages() %}
+                <div class="flash"><h4>{{ message }}</h4></div>
+            {% endfor %}
+            <h2 class="form-signin-heading">Please login</h2>
+            {{ form.hidden_tag() }}
+            {{ form.username(class="form-control",placeholder="Username") }}
+            {% for error in form.errors.username %}
+                <span>{{ error }}</span>
+            {% endfor %}
+            {{ form.password(class="form-control",placeholder="Password") }}
+            {% for error in form.errors.password %}
+                <span>{{ error }}</span><br>
+            {% endfor %}
+            {{ form.remember_me }}&nbsp;&nbsp;Remember Me
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+
+        </form>
+    </div>
+
 {% endblock %}
