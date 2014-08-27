@@ -6,25 +6,22 @@ It is same as [SpringBlog](https://github.com/defshine/SpringBlog),but implement
 
 #Use:  
   
-  
 ##Backend:
-1. [Flask](http://flask.pocoo.org/)
-2. [Flask-SQLAlchemy](https://pythonhosted.org/Flask-SQLAlchemy/) ORM for mysql  
-3. [Flask-WTF](https://flask-wtf.readthedocs.org/en/latest/)
-4. [Flask-Login](https://flask-login.readthedocs.org/en/latest/)  
+  1. [Flask](http://flask.pocoo.org/)
+  2. [Flask-SQLAlchemy](https://pythonhosted.org/Flask-SQLAlchemy/) ORM for mysql  
+  3. [Flask-WTF](https://flask-wtf.readthedocs.org/en/latest/)
+  4. [Flask-Login](https://flask-login.readthedocs.org/en/latest/)  
 
-##Web
-1. Jquery-1.11.1
-2. Bootstrap-3.2.0  
+##Web:
+  1. Jquery-1.11.1
+  2. Bootstrap-3.2.0  
 
-
-#Finish  
+#Finish:    
 1. Login and remember me, user Flask-login  
+2. Admin Home  
 
-
-#Todo  
+#Todo:    
 So many  
-
 
 #Connect me
 Life is short,you need python!
