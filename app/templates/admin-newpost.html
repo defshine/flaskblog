@@ -1,0 +1,15 @@
+{% extends 'admin.html' %}
+{% block admin_content_left %}
+    <div class="list-group">
+        <a href="/admin" class="list-group-item">Home</a>
+        <a href="/admin/new_post" class="list-group-item  active">New post</a>
+        <a href="#" class="list-group-item">Posts</a>
+        <a href="#" class="list-group-item">Categories</a>
+        <a href="#" class="list-group-item">Comments</a>
+    </div>
+{% endblock %}
+
+{% block admin_content_right %}
+<h2>Write post!</h2>
+
+{% endblock %}

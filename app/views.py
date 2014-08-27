@@ -62,7 +62,12 @@ def login():
 @app.route('/admin')
 @login_required
 def admin():
-    return render_template('admin.html', title='Admin', user=current_user)
+    return render_template('admin-home.html', title='Admin', user=current_user)
+
+@app.route('/admin/new_post')
+@login_required
+def admin_new_post():
+    return render_template('admin-newpost.html', title='Admin', user=current_user)
 
 
 @app.route('/logout')

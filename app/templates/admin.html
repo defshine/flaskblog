@@ -1,8 +1,35 @@
 {% extends 'base.html' %}
 {% block content %}
-{%  if user %}
-    <h1>Hello {{user.user_name}}</h1>
-    <a href="/logout">Logout</a>
-{% endif %}
-<div>This admin view</div>
+
+    <div class="container admin-container">
+
+        <div class="row row-offcanvas row-offcanvas-right">
+
+            <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+
+                {% block admin_content_left %}
+
+                {% endblock %}
+
+            </div>
+
+
+            <div class="col-xs-12 col-sm-9">
+                {% block admin_content_right %}
+
+                {% endblock %}
+
+            </div>
+
+        </div>
+        <!--/row-->
+
+        <hr>
+
+        <footer>
+            <p>&copy; Company 2014</p>
+        </footer>
+
+    </div><!--/.container-->
+
 {% endblock %}
