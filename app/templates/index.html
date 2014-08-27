@@ -1,9 +1,18 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1>Hello {{user.user_name}}</h1>
+
+{%  if user %}
+    <h1>Hello {{user.user_name}}</h1>
+    <a href="/logout">Logout</a>
+{% else %}
+    <h1>welcome to flaskblog</h1>
+    <a href="/login">Login</a>
+{% endif %}
 {% if posts %}
+    <div>
     {% for post in posts %}
         {{ post.author }} says: {{post.body}}
     {% endfor %}
+    </div>
 {% endif %}
 {% endblock %}
