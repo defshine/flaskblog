@@ -64,10 +64,29 @@ def login():
 def admin():
     return render_template('admin-home.html', title='Admin', user=current_user)
 
+
 @app.route('/admin/new_post')
 @login_required
 def admin_new_post():
     return render_template('admin-newpost.html', title='Admin', user=current_user)
+
+
+@app.route('/admin/posts')
+@login_required
+def admin_posts():
+    return render_template('admin-posts.html', title='Admin', user=current_user)
+
+
+@app.route('/admin/categories')
+@login_required
+def admin_categories():
+    return render_template('admin-categories.html', title='Admin', user=current_user)
+
+
+@app.route('/admin/comments')
+@login_required
+def admin_comments():
+    return render_template('admin-comments.html', title='Admin', user=current_user)
 
 
 @app.route('/logout')

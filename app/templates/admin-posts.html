@@ -1,20 +1,15 @@
 {% extends 'admin.html' %}
 {% block admin_content_left %}
     <div class="list-group">
-        <a href="/admin" class="list-group-item active">Home</a>
+        <a href="/admin" class="list-group-item">Home</a>
         <a href="/admin/new_post" class="list-group-item">New post</a>
-       <a href="/admin/posts" class="list-group-item">Posts</a>
+        <a href="/admin/posts" class="list-group-item active">Posts</a>
         <a href="/admin/categories" class="list-group-item">Categories</a>
         <a href="/admin/comments" class="list-group-item">Comments</a>
     </div>
 {% endblock %}
 
 {% block admin_content_right %}
-    <div class="jumbotron">
-        <h1>Hello</h1>
+<h2>Posts</h2>
 
-        <p>This is the backend of FlaskBlog.</p>
-
-        <p>You can operate all posts here</p>
-    </div>
 {% endblock %}
