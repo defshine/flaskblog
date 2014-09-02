@@ -2,6 +2,9 @@
 <head>
     <title>{{ title }}-flaskblog</title>
     <link href="/static/css/lib/bootstrap.css" rel="stylesheet">
+
+    <link href="/static/css/lib/font-awesome.css" rel="stylesheet">
+    <link href="/static/css/lib/simditor.css" rel="stylesheet">
     <link href="/static/css/login.css" rel="stylesheet">
     <link href="/static/css/admin.css" rel="stylesheet">
     <script type="text/javascript" src="{{ url_for('static', filename='js/lib/jquery-1.11.1.js') }}"></script>
@@ -45,5 +48,6 @@
 </div>
 {% block content %}
 {% endblock %}
+
 </body>
 </html>

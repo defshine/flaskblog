@@ -22,3 +22,38 @@ class User(db.Model):
 
     def __repr__(self):
         return '<User %r>' % self.user_name
+
+
+class Post(db.Model):
+    post_id = db.Column(db.BIGINT, primary_key=True)
+    author_id = db.Column(db.BIGINT)
+    post_date = db.Column(db.DateTime)
+    post_content = db.Column(db.TEXT)
+    post_title = db.Column(db.VARCHAR(256))
+    post_status = db.Column(db.Integer)
+    comment_status = db.Column(db.Integer)
+    category_id = db.Column(db.BIGINT)
+    post_modified_date = db.Column(db.DateTime)
+    comment_count = db.Column(db.Integer)
+
+
+class Category(db.Model):
+    cat_id = db.Column(db.BIGINT, primary_key=True)
+    cat_name = db.Column(db.VARCHAR(128))
+    cat_description = db.Column(db.VARCHAR(256))
+    cat_parent = db.Column(db.BIGINT)
+
+
+class Comment(db.Model):
+    comment_id = db.Column(db.BIGINT, primary_key=True)
+    post_id = db.Column(db.BIGINT)
+    comment_author = db.Column(db.VARCHAR(64))
+    comment_author_email = db.Column(db.VARCHAR(64))
+    comment_date = db.Column(db.DateTime)
+    comment_content = db.Column(db.VARCHAR(256))
+    comment_parent = db.Column(db.BIGINT)
+    user_id = db.Column(db.BIGINT)
+
+
+
+
