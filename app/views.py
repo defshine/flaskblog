@@ -1,9 +1,9 @@
 from flask import render_template
-from flask import request, redirect, url_for
+from flask import request, redirect, url_for, jsonify
 from flask import flash
 from app import app, login_manager
 from forms import LoginForm
-from models import User
+from models import User, Post, Category, Comment
 from flask.ext.login import login_user, login_required, current_user, logout_user
 
 
@@ -93,4 +93,10 @@ def admin_comments():
 @login_required
 def logout():
     logout_user()
-    return  redirect(url_for('index'))
+    return redirect(url_for('index'))
+
+
+@app.route('/categories')
+@login_required
+def list_category():
+    return jsonify(status='200', categories=Category.list_category())

@@ -43,6 +43,26 @@ class Category(db.Model):
     cat_description = db.Column(db.VARCHAR(256))
     cat_parent = db.Column(db.BIGINT)
 
+    def __init__(self, cat_id, cat_name, cat_description, cat_parent):
+        self.cat_id = cat_id
+        self.cat_name = cat_name
+        self.cat_description = cat_description
+        self.cat_parent = cat_parent
+
+    @staticmethod
+    def list_category():
+        categories = Category.query.all()
+        return [c.to_json() for c in categories]
+
+
+    def to_json(self):
+        return {
+            'cat_id': self.cat_id,
+            'cat_name': self.cat_name,
+            'cat_description': self.cat_description,
+            'cat_parent': self.cat_parent
+        }
+
 
 class Comment(db.Model):
     comment_id = db.Column(db.BIGINT, primary_key=True)

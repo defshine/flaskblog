@@ -18,20 +18,15 @@
 
                     <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1"
                             data-toggle="dropdown">
-                        Dropdown
+                        <span class="newpost-category-select-btn-value">Uncategorized</span>
                         <span class="caret"></span>
                     </button>
-                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
-                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
-                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
-                        <li role="presentation" class="divider"></li>
-                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+                    <ul class="dropdown-menu newpost-category-select-menu" role="menu" aria-labelledby="dropdownMenu1">
                     </ul>
 
                 </div>
 
-                <input type="text" class="form-control">
+                <input type="text" class="form-control admin-new-post-title">
             </div>
             <!-- /input-group -->
         </div>
@@ -47,12 +42,14 @@
 
 
             <div class="btn-group new-post-btn-group">
-                <button type="button" class="btn btn-default">Cancel</button>
-                <button type="button" class="btn btn-default">Save</button>
-                <button type="button" class="btn btn-default">Publish</button>
+                <button type="button" class="btn btn-default new-post-cancel-btn">Cancel</button>
+                <button type="button" class="btn btn-default new-post-save-btn">Save</button>
+                <button type="button" class="btn btn-default new-post-publish-btn">Publish</button>
             </div>
         </div>
         <!-- /.col-lg-6 -->
     </div><!-- /.row -->
+    <script type="text/javascript" src="{{ url_for('static', filename='js/lib/simditor-all.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/admin_newpost.js') }}"></script>
 
 {% endblock %}
