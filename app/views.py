@@ -74,13 +74,15 @@ def admin_new_post():
 @app.route('/admin/posts')
 @login_required
 def admin_posts():
-    return render_template('admin_posts.html', title='Admin', user=current_user)
+    posts = Post.query.all()
+    return render_template('admin_posts.html', title='Admin', user=current_user,posts=posts)
 
 
 @app.route('/admin/categories')
 @login_required
 def admin_categories():
-    return render_template('admin_categories.html', title='Admin', user=current_user)
+    categories = Category.query.all()
+    return render_template('admin_categories.html', title='Admin', user=current_user,categories=categories)
 
 
 @app.route('/admin/comments')
@@ -123,4 +125,4 @@ def save_post():
 def get_post_by_id(post_id):
     post = Post.query.filter_by(post_id=post_id).first()
     categories = Category.query.all()
-    return render_template('blog.html', title='Blog', post=post, categories=categories)
+    return render_template('blog.html', title='Blog', post=post, categories=categories, user=current_user)

@@ -92,7 +92,7 @@ class Post(db.Model):
             'post_status': self.comment_status,
             'comment_status': self.comment_status,
             'category_id': self.category_id,
-            'post_modified_date':self.post_modified_date,
+            'post_modified_date': self.post_modified_date,
             'comment_count': self.comment_count
         }
 

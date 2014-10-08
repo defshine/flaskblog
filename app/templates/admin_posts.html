@@ -10,6 +10,30 @@
 {% endblock %}
 
 {% block admin_content_right %}
-<h2>Posts</h2>
+
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">All Posts</div>
+  <!-- Table -->
+  <table class="table">
+      <thead>
+      <tr>
+          <td>Title</td>
+          <td>Operation</td>
+      </tr>
+      </thead>
+      <tbody>
+      {% for post in posts %}
+          <tr>
+          <td>{{ post.post_title }}</td>
+          <td>
+              <a href="" class="btn bg-primary">Edit</a>
+              <a href="" class="btn bg-primary">Delete</a>
+          </td>
+          </tr>
+      {% endfor %}
+      </tbody>
+  </table>
+</div>
 
 {% endblock %}

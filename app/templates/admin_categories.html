@@ -10,6 +10,30 @@
 {% endblock %}
 
 {% block admin_content_right %}
-<h2>Categories</h2>
 
+    <div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">All Categories</div>
+  <!-- Table -->
+  <table class="table">
+      <thead>
+      <tr>
+          <td>Title</td>
+          <td>Operation</td>
+      </tr>
+      </thead>
+      <tbody>
+      {% for c in categories %}
+          <tr>
+          <td>{{ c.cat_name }}</td>
+          <td>
+              <a href="" class="btn bg-primary">Edit</a>
+              <a href="" class="btn bg-primary">Delete</a>
+          </td>
+          </tr>
+      {% endfor %}
+      </tbody>
+  </table>
+</div>
+ <a href="#" class="btn bg-primary">Add</a>
 {% endblock %}
