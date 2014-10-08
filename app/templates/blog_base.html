@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container blog-list-container">
+
+        <div class="row">
+            <div class="col-lg-8 blog-list-container-left">
+                <!-- blog entry -->
+                {% block blog_content %}
+                {% endblock %}
+            </div>
+            <div class="col-lg-4 blog-list-container-right">
+                <div class="well">
+                    <h3>About me</h3>
+
+                    <h4>defshine</h4>
+                    Software engineer,focus on Java and Python.
+                    <!-- /input-group -->
+                </div>
+                <!-- /well -->
+                <div class="well">
+                    <h3>Popular Blog Categories</h3>
+
+                    <div>
+                        <ul class="list-unstyled blog-list-container-right-category">
+                            {% for c in categories %}
+                                <li><h4>{{ c.cat_name }}</h4></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+                <!-- /well -->
+                <div class="well">
+                    <h4>Side Widget Well</h4>
+
+                    <p>Bootstrap's default wells work great for side widgets! What is a widget anyways...?</p>
+                </div>
+                <!-- /well -->
+            </div>
+        </div>
+
+        <hr>
+
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; defshine 2014</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    <!-- /.container -->
+
+    <script type="text/javascript" src="{{ url_for('static', filename='js/index.js') }}"></script>
+{% endblock %}

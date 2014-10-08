@@ -8,15 +8,15 @@ from flask.ext.login import login_user, login_required, current_user, logout_use
 
 
 @app.route('/')
+@app.route('/index')
 def index():
-
-    posts = [{'author': 'hello',
-             'body': 'world'}, {'author': 'hello','body': 'flask'}]
+    posts = Post.query.filter_by(post_status=1).all()
+    categories = Category.query.all()
     if current_user.get_id() is not None:
         user = current_user
-        return render_template('index.html', title='Home', user=user, posts=posts)
+        return render_template('index.html', title='Home', user=user, posts=posts, categories=categories)
 
-    return render_template('index.html', title='Home',posts=posts)
+    return render_template('index.html', title='Home', posts=posts, categories=categories)
 
 
 @login_manager.user_loader
@@ -62,31 +62,31 @@ def login():
 @app.route('/admin')
 @login_required
 def admin():
-    return render_template('admin-home.html', title='Admin', user=current_user)
+    return render_template('admin_home.html', title='Admin', user=current_user)
 
 
 @app.route('/admin/new_post')
 @login_required
 def admin_new_post():
-    return render_template('admin-newpost.html', title='Admin', user=current_user)
+    return render_template('admin_newpost.html', title='Admin', user=current_user)
 
 
 @app.route('/admin/posts')
 @login_required
 def admin_posts():
-    return render_template('admin-posts.html', title='Admin', user=current_user)
+    return render_template('admin_posts.html', title='Admin', user=current_user)
 
 
 @app.route('/admin/categories')
 @login_required
 def admin_categories():
-    return render_template('admin-categories.html', title='Admin', user=current_user)
+    return render_template('admin_categories.html', title='Admin', user=current_user)
 
 
 @app.route('/admin/comments')
 @login_required
 def admin_comments():
-    return render_template('admin-comments.html', title='Admin', user=current_user)
+    return render_template('admin_comments.html', title='Admin', user=current_user)
 
 
 @app.route('/logout')
@@ -100,3 +100,27 @@ def logout():
 @login_required
 def list_category():
     return jsonify(status='200', categories=Category.list_category())
+
+
+@app.route('/post', methods=['POST'])
+def save_post():
+    req_data = request.form
+    post_id = req_data.get('postId')
+    post_title = req_data.get('title')
+    post_content = req_data.get('content')
+    category_id = req_data.get('categoryId')
+    post_status = req_data.get('postStatus')
+    author_id = current_user.get_id()
+    if post_id is not None:
+        Post.update(author_id, post_title, post_content, post_status, category_id, post_id)
+        return jsonify(status='200', postId=post_id)
+    else:
+        post_id = Post.save(author_id, post_title, post_content, post_status, category_id)
+        return jsonify(status='200', postId=post_id)
+
+
+@app.route('/post/<int:post_id>', methods=['GET'])
+def get_post_by_id(post_id):
+    post = Post.query.filter_by(post_id=post_id).first()
+    categories = Category.query.all()
+    return render_template('blog.html', title='Blog', post=post, categories=categories)

@@ -1,18 +1,20 @@
-{% extends 'base.html' %}
-{% block content %}
-
-{%  if user %}
-    <h1>Hello {{user.user_name}}</h1>
-    <a href="/logout">Logout</a>
-{% else %}
-    <h1>welcome to flaskblog</h1>
-    <a href="/login">Login</a>
-{% endif %}
-{% if posts %}
-    <div>
-    {% for post in posts %}
-        {{ post.author }} says: {{post.body}}
-    {% endfor %}
+{% extends 'blog_base.html' %}
+{% block blog_content %}
+    <div class="blog-list-container-left-content">
+        {% for post in posts %}
+            <h1><a href="post/{{ post.post_id }}">{{ post.post_title }}</a></h1>
+            <div>
+                <span class="lead">by Admin</span>
+                <span class="glyphicon glyphicon-time"></span> Posted on {{ post.post_date }}
+            </div>
+            <hr>
+        {% endfor %}
+    <!-- pager -->
+    <ul class="pager">
+        <li class="previous"><a href="#">&larr; Older</a>
+        </li>
+        <li class="next"><a href="#">Newer &rarr;</a>
+        </li>
+    </ul>
     </div>
-{% endif %}
 {% endblock %}

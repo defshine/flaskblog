@@ -10,5 +10,8 @@ body {
     padding-top: 20px;
     padding-bottom: 20px;
 }
+#new-post-content{
+    height: 500px;
+}
 
 

@@ -18,7 +18,7 @@
 
                     <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1"
                             data-toggle="dropdown">
-                        <span class="newpost-category-select-btn-value">Uncategorized</span>
+                        <span class="newpost-category-select-btn-value " data-key="0">Uncategorized</span>
                         <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu newpost-category-select-menu" role="menu" aria-labelledby="dropdownMenu1">
@@ -36,8 +36,8 @@
     <div class="row">
         <div class="col-lg-10">
            <div class="new-post-content-wrap">
-                <textarea id ="new-post-content" >
-                </textarea>
+
+                <textarea id="new-post-content" name="body" class="textarea" placeholder="Type your post"></textarea>
             </div>
 
 
@@ -50,6 +50,7 @@
         <!-- /.col-lg-6 -->
     </div><!-- /.row -->
     <script type="text/javascript" src="{{ url_for('static', filename='js/lib/simditor-all.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/lib/jquery.qeditor.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='js/admin_newpost.js') }}"></script>
 
 {% endblock %}

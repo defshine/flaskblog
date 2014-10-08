@@ -18,10 +18,15 @@ It is same as [SpringBlog](https://github.com/defshine/SpringBlog),but implement
 
 #Finish:    
 1. Login and remember me, user Flask-login  
-2. Admin Home  
+2. Admin Home
+3. Publish and save post
+4. Show blog list in index
+5. Show blog content
 
-#Todo:    
-So many  
+#Todo:
+1. Finish the basic blog function
+2. Review python code and think more
+3. Write front with AngularJS instead of jQuery
 
 #Connect me
 Life is short,you need python!

@@ -1,9 +1,7 @@
 (function ($) {
 
 
-    var editor = new Simditor({
-        textarea: $('#new-post-content')
-    });
+     $("#new-post-content").qeditor({});
 
 
     var POST_STATUS_DRAFT = 0;
@@ -100,8 +98,6 @@
                 var postId = data.postId;
                 $('.admin-new-post-title').attr('data-key', postId);
 
-                $('.admin-new-post-alert').addClass('alert-success');
-                $('.admin-new-post-alert').css('display', 'block');
             }
 
         });
@@ -116,7 +112,7 @@
         var postId = $('.admin-new-post-title').attr('data-key');
 
 
-        var url = '/admin/post';
+        var url = '/post';
         var data = {
             categoryId: categoryId,
             title: postTitle,
@@ -128,14 +124,11 @@
         }
 
         $.post(url, data, function (data) {
-            console.log('save post success----' + data);
+            console.log('publish  post success----' + data);
             if (data.status == STATUS_OK) {
 
                 var postId = data.postId;
 
-                $.admin.container.load('/admin/view/post/' + postId, function () {
-
-                });
 
             }
 
