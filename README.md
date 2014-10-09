@@ -26,7 +26,13 @@ It is same as [SpringBlog](https://github.com/defshine/SpringBlog),but implement
 #Todo:
 1. Finish the basic blog function
 2. Review python code and think more
-3. Write front with AngularJS instead of jQuery
+3. Write front with AngularJS instead of jQuery  
+
+#Deploy  
+Use gunicorn to deploy this project:
+  
+> gunicorn -b 0.0.0.0:8005 run:app
+
 
 #Connect me
 Life is short,you need python!
