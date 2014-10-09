@@ -5,6 +5,7 @@ from app import app, login_manager
 from forms import LoginForm
 from models import User, Post, Category, Comment
 from flask.ext.login import login_user, login_required, current_user, logout_user
+import hashlib
 
 # pagination
 POSTS_PER_PAGE = 5
@@ -45,16 +46,17 @@ def login():
 
     form = LoginForm()
     if request.method == 'POST' and form.validate_on_submit():
-        name = form.username.data
-        password = form.password.data
+        name = form.username.data.strip()
+        password = form.password.data.strip()
         remember_me = form.remember_me.data
-        print remember_me
+        m = hashlib.md5()
+        m.update(password)
         user = User.query.filter_by(user_name=name).first()
         if user is None:
             flash('No this user !')
             return render_template('login.html', title='Login', form=form)
         else:
-            if user.password != password:
+            if user.password != m.hexdigest():
                 flash('Password error !')
                 return render_template('login.html', title='Login', form=form)
             else:
