@@ -28,11 +28,26 @@ It is same as [SpringBlog](https://github.com/defshine/SpringBlog),but implement
 2. Review python code and think more
 3. Write front with AngularJS instead of jQuery  
 
-#Deploy  
-Use gunicorn to deploy this project:
-  
-> gunicorn -b 0.0.0.0:8005 run:app
+#Deploy
 
+User gunicorn and supervisor to deploy this project on Ubuntu    
+Install gunicorn:  
+
+> $ sudo pip install gunicorn  
+> $ sudo pip install supervisor  
+
+Copy supervisor config file:  
+
+> $ sudo cp flaskblog.conf /etc/supervisor/conf.d/ 
+
+Restart supervisor and start flaskblog:  
+  
+> $ sudo supervisorctl reload  
+> $ sudo supervisorctl start flaskblog  
+
+Look status:  
+
+> $ sudo supervisorctl status
 
 #Connect me
 Life is short,you need python!
