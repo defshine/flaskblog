@@ -6,11 +6,15 @@ from forms import LoginForm
 from models import User, Post, Category, Comment
 from flask.ext.login import login_user, login_required, current_user, logout_user
 
+# pagination
+POSTS_PER_PAGE = 5
+
 
 @app.route('/')
 @app.route('/index')
-def index():
-    posts = Post.query.filter_by(post_status=1).all()
+@app.route('/index/<int:page>')
+def index(page=1):
+    posts = Post.query.filter_by(post_status=1).paginate(page, POSTS_PER_PAGE, False)
     categories = Category.query.all()
     if current_user.get_id() is not None:
         user = current_user
@@ -105,6 +109,7 @@ def list_category():
 
 
 @app.route('/post', methods=['POST'])
+@login_required
 def save_post():
     req_data = request.form
     post_id = req_data.get('postId')
@@ -122,6 +127,8 @@ def save_post():
 
 
 @app.route('/post/<int:post_id>', methods=['GET'])
+@app.route('/index/post/<int:post_id>', methods=['GET'])
+@login_required
 def get_post_by_id(post_id):
     post = Post.query.filter_by(post_id=post_id).first()
     categories = Category.query.all()
