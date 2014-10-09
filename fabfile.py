@@ -11,7 +11,7 @@ def add():
 
 
 def commit():
-    local("git add -p && git commit")
+    local("git commit -a ")
 
 
 def push():
@@ -25,7 +25,7 @@ def first_deploy():
 
 
 def deploy():
-    code_dir = '/home/xin/www'
+    code_dir = '/home/xin/www/flaskblog'
     with cd(code_dir):
         run("git pull")
         run("gunicorn -b 0.0.0.0:8005 run:app")
