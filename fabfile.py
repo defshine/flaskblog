@@ -18,7 +18,11 @@ def push():
     local("git push")
 
 
-def first_deploy():
+def pull():
+    local("git pull")
+
+
+def clone():
     code_dir = '/home/xin/www'
     with cd(code_dir):
         run("git clone https://github.com/defshine/flaskblog.git")
