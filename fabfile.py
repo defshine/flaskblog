@@ -29,7 +29,7 @@ def clone():
 
 
 def init_db():
-    code_dir = '/home/xin/www'
+    code_dir = '/home/xin/www/flaskblog'
     with cd(code_dir):
         run("python init_db.py")
 

@@ -1,11 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 from app import db
-from sqlalchemy.schema import CreateSchema
 from app.models import User
 import hashlib
 
-db.engine.execute(CreateSchema('flaskblog'))
 db.create_all()
 
 # create admin user
