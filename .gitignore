@@ -4,4 +4,5 @@
 **/*.log
 *idea*
 *.iml
+flaskblog.egg-info/*
 
