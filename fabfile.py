@@ -22,10 +22,11 @@ def pull():
     local("git pull")
 
 
-def clone():
+def init():
     code_dir = '/home/xin/www'
     with cd(code_dir):
         run("git clone https://github.com/defshine/flaskblog.git")
+        run("python init_db.py")
 
 
 def deploy():
