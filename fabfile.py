@@ -38,6 +38,4 @@ def deploy():
     code_dir = '/home/xin/www/flaskblog'
     with cd(code_dir):
         run("git pull")
-        run("supervisorctl reload")
-        run("supervisorctl start -c flaskblog.conf flaskblog")
-        run("supervisorctl status")
+
