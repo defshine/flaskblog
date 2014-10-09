@@ -1,9 +1,9 @@
 from fabric.api import *
 
 
-env.hosts = ['172.19.3.123']
-env.user = 'xin'
-env.password = '1201027'
+env.hosts = ['']
+env.user = ''
+env.password = ''
 
 
 def add():
