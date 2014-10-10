@@ -81,7 +81,13 @@ class Post(db.Model):
             if category_id is not None:
                 post.category_id = category_id
 
-            db.session.commit()
+        db.session.commit()
+
+    @staticmethod
+    def update_category_id(post_id, category_id):
+        post = db.session.query(Post).filter(Post.post_id == post_id).first()
+        post.category_id = category_id
+        db.session.commit()
 
     @staticmethod
     def delete(post_id):
@@ -114,6 +120,27 @@ class Category(db.Model):
         self.cat_name = cat_name
         self.cat_description = cat_description
         self.cat_parent = cat_parent
+
+    @staticmethod
+    def save(cat_name, cat_description):
+        cat = Category(cat_name, cat_description)
+        db.session.add(cat)
+        db.session.commit()
+
+    @staticmethod
+    def update(cat_id, cat_name, cat_description):
+        cat = Category.query.filter_by(cat_id=cat_id).first()
+        if cat_name is not None:
+            cat.cat_name = cat_name
+        if cat_description is not None:
+            cat.cat_description = cat_description
+
+        db.session.commit()
+
+    @staticmethod
+    def delete(cat_id):
+        db.session.query(Category).filter_by(cat_id=cat_id).delete()
+        db.session.commit()
 
     @staticmethod
     def list_category():

@@ -3,21 +3,20 @@
     <div class="container login-container">
         <form class="form-signin" role="form" method="post">
             {% for message in get_flashed_messages() %}
-                <div class="flash"><h4>{{ message }}</h4></div>
+                <div class="flash alert-danger"><span>{{ message }}</span></div>
             {% endfor %}
             <h2 class="form-signin-heading">Please login</h2>
             {{ form.hidden_tag() }}
             {{ form.username(class="form-control",placeholder="Username") }}
             {% for error in form.errors.username %}
-                <span>{{ error }}</span>
+                 <div class="flash alert-danger"><span>{{ error }}</span></div>
             {% endfor %}
             {{ form.password(class="form-control",placeholder="Password") }}
             {% for error in form.errors.password %}
-                <span>{{ error }}</span><br>
+                 <div class="flash alert-danger"><span>{{ error }}</span></div>
             {% endfor %}
             {{ form.remember_me }}&nbsp;&nbsp;Remember Me
             <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-
         </form>
     </div>
 

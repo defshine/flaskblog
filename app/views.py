@@ -2,7 +2,7 @@ from flask import render_template
 from flask import request, redirect, url_for, jsonify
 from flask import flash
 from app import app, login_manager
-from forms import LoginForm
+from forms import LoginForm, CategoryForm
 from models import User, Post, Category, Comment
 from flask.ext.login import login_user, login_required, current_user, logout_user
 import hashlib
@@ -114,14 +114,59 @@ def admin_edit_post_by_id(post_id):
 def admin_delete_post_by_id(post_id):
     Post.delete(post_id)
     posts = Post.query.all()
-    return render_template('admin_posts.html', title='Admin', user=current_user,posts=posts)
+    return render_template('admin_posts.html', title='Admin', user=current_user, posts=posts)
 
 
 @app.route('/admin/categories')
 @login_required
 def admin_categories():
     categories = Category.query.all()
-    return render_template('admin_categories.html', title='Admin', user=current_user,categories=categories)
+    return render_template('admin_categories.html', title='Admin', user=current_user, categories=categories)
+
+
+@app.route('/admin/category', methods=['GET', 'POST'])
+@login_required
+def admin_category():
+
+    form = CategoryForm()
+    if request.method == 'POST' and form.validate_on_submit():
+        cat_name = form.cat_name.data.strip()
+        cat_description = form.cat_description.data.strip()
+        Category.save(cat_name, cat_description)
+        categories = Category.query.all()
+        return render_template('admin_categories.html', title='Admin', user=current_user, categories=categories)
+
+    return render_template('admin_new_category.html', title='Admin', form=form, user=current_user)
+
+
+@app.route('/admin/edit_category/<int:cat_id>', methods=['GET', 'POST'])
+@login_required
+def admin_edit_category(cat_id):
+
+    form = CategoryForm()
+    if request.method == 'POST' and form.validate_on_submit():
+        cat_name = form.cat_name.data.strip()
+        cat_description = form.cat_description.data.strip()
+        Category.update(cat_id, cat_name, cat_description)
+        categories = Category.query.all()
+        return render_template('admin_categories.html', title='Admin', user=current_user, categories=categories)
+    else:
+        category = Category.query.filter_by(cat_id=cat_id).first()
+        form.cat_name.data = category.cat_name
+        form.cat_description.data = category.cat_description
+        return render_template('admin_edit_category.html', title='Admin', form=form, user=current_user)
+
+
+@app.route('/admin/delete_category/<int:cat_id>', methods=['GET'])
+@login_required
+def admin_delete_category(cat_id):
+    Category.delete(cat_id)
+    posts = Post.query.filter_by(category_id=cat_id).all()
+    if posts is not None:
+        for p in posts:
+            Post.update_category_id(p.post_id, 0)
+    categories = Category.query.all()
+    return render_template('admin_categories.html', title='Admin', user=current_user, categories=categories)
 
 
 @app.route('/admin/comments')

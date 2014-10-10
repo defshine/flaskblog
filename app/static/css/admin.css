@@ -17,5 +17,12 @@ body {
 #new-post-content{
     height: 500px;
 }
+.category-form{
+    width: 400px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    padding-left: 5px;
+}
+
 
 
