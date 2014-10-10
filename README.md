@@ -15,6 +15,7 @@ It is same as [SpringBlog](https://github.com/defshine/SpringBlog),but implement
 ##Web:
   1. Jquery-1.11.1
   2. Bootstrap-3.2.0  
+  3. Very simple editor [qeditor](https://github.com/huacnlee/jquery.qeditor)
 
 #Finish:    
 1. Login and remember me, user Flask-login  
