@@ -113,6 +113,7 @@ def admin_edit_post_by_id(post_id):
 @login_required
 def admin_delete_post_by_id(post_id):
     Post.delete(post_id)
+    Comment.delete_by_post_id(post_id)
     posts = Post.query.all()
     return render_template('admin_posts.html', title='Admin', user=current_user, posts=posts)
 

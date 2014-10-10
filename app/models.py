@@ -179,6 +179,16 @@ class Comment(db.Model):
         db.session.add(comment)
         db.session.commit()
 
+    @staticmethod
+    def delete(comment_id):
+        db.session.query(Comment).filter_by(comment_id=comment_id).delete()
+        db.session.commit()
+
+    @staticmethod
+    def delete_by_post_id(post_id):
+        db.session.query(Comment).filter_by(post_id=post_id).delete()
+        db.session.commit()
+
     def to_json(self):
         return {
             'comment_id': self.comment_id,

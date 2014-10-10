@@ -34,8 +34,10 @@
             </ul>
              <ul class="nav navbar-nav navbar-right ">
                 {% if user %}
+                    {% if user.user_id %}
                     <li><a href="/admin">Dashboard</a></li>
                     <li><a href="/logout">Logout</a></li>
+                    {% endif %}
                 {% endif %}
             </ul>
         </div>
