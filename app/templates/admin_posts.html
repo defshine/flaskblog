@@ -27,13 +27,14 @@
           <tr>
           <td>{{ post.post_title }}</td>
           <td>
-              <a href="" class="btn bg-primary">Edit</a>
-              <a href="" class="btn bg-primary">Delete</a>
+              <a href="#" class="btn bg-primary admin-edit-btn" data-key="{{ post.post_id }}">Edit</a>
+              <a href="#" class="btn bg-primary admin-delete-btn"  data-key="{{ post.post_id }}">Delete</a>
           </td>
           </tr>
       {% endfor %}
       </tbody>
   </table>
 </div>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/admin_posts.js') }}"></script>
 
 {% endblock %}

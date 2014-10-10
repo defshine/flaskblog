@@ -84,6 +84,30 @@ def admin_posts():
     return render_template('admin_posts.html', title='Admin', user=current_user,posts=posts)
 
 
+@app.route('/admin/post/<int:post_id>', methods=['GET'])
+@login_required
+def admin_get_post_by_id(post_id):
+    post = Post.query.filter_by(post_id=post_id).first()
+    return render_template('admin_post.html', post=post, user=current_user)
+
+@app.route('/admin/edit_post/<int:post_id>', methods=['GET'])
+@login_required
+def admin_edit_post_by_id(post_id):
+    post = Post.query.filter_by(post_id=post_id).first()
+    categories = Category.query.all()
+    category_id = post.category_id
+    if int(category_id) != 0:
+        category = Category.query.filter_by(cat_id=category_id).first()
+        if category is not None:
+            return render_template('admin_edit_post.html',
+                           post=post, category=category, categories=categories, user=current_user)
+        else:
+            return render_template('admin_edit_post.html',
+                           post=post, categories=categories, user=current_user)
+    else:
+        return render_template('admin_edit_post.html',
+                           post=post, categories=categories, user=current_user)
+
 @app.route('/admin/categories')
 @login_required
 def admin_categories():

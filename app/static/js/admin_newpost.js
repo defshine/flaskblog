@@ -1,5 +1,6 @@
 (function ($) {
 
+    var container = $('.admin-content-right');
 
      $("#new-post-content").qeditor({});
 
@@ -106,7 +107,7 @@
 
     function _publishPosts() {
 
-        var categoryId = $('.newpost-category-btn-name').attr('data-key');
+        var categoryId = $('.newpost-category-select-btn-value').attr('data-key');
         var postTitle = $('.admin-new-post-title').val();
         var postContent = $('#new-post-content').val();
         var postId = $('.admin-new-post-title').attr('data-key');
@@ -128,6 +129,7 @@
             if (data.status == STATUS_OK) {
 
                 var postId = data.postId;
+                container.load('/admin/post/'+postId);
 
 
             }

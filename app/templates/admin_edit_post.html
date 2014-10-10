@@ -1,0 +1,51 @@
+
+    <div class="row">
+        <div class="col-lg-10">
+            <div class="input-group">
+                <div class="input-group-btn">
+
+                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1"
+                            data-toggle="dropdown">
+                        {% if category %}
+                        <span class="edit-post-category-select-btn-value " data-key="{{ category.cat_id }}">{{ category.cat_name }}</span>
+                        {% else %}
+                        <span class="edit-post-category-select-btn-value " data-key="0">Uncategorized</span>
+                        {% endif %}
+
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu newpost-category-select-menu" role="menu" aria-labelledby="dropdownMenu1">
+                        {% for c in categories %}
+                            <li role="presentation"><a role="menuitem" tabindex="-1" data-key="{{ c.cat_id }}" href="#">{{ c.cat_name }}</a></li>
+                        {% endfor %}
+                    </ul>
+
+                </div>
+
+                <input type="text" class="form-control admin-edit-post-title" data-key="{{ post.post_id }}" value="{{ post.post_title }}">
+            </div>
+            <!-- /input-group -->
+        </div>
+        <!-- /.col-lg-6 -->
+    </div><!-- /.row -->
+
+    <div class="row">
+        <div class="col-lg-10">
+           <div class="new-post-content-wrap">
+
+                <textarea id="edit-post-content" name="body" class="textarea">
+                    {{ post.post_content }}
+                </textarea>
+            </div>
+
+
+            <div class="btn-group new-post-btn-group">
+                <button type="button" class="btn btn-default edit-post-cancel-btn">Cancel</button>
+                <button type="button" class="btn btn-default edit-post-save-btn">Save</button>
+                <button type="button" class="btn btn-default edit-post-publish-btn">Publish</button>
+            </div>
+        </div>
+        <!-- /.col-lg-6 -->
+    </div><!-- /.row -->
+     <script type="text/javascript" src="{{ url_for('static', filename='js/lib/jquery.qeditor.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/admin_edit_post.js') }}"></script>
