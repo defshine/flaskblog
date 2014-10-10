@@ -8,7 +8,7 @@
     var POST_STATUS_DRAFT = 0;
     var POST_STATUS_PUBLISH = 1;
     var POST_STATUS_PRIVATE = 2;
-    var STATUS_OK = 200
+    var STATUS_OK = 200;
 
 
     function _init() {

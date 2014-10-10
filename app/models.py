@@ -166,6 +166,28 @@ class Comment(db.Model):
     comment_parent = db.Column(db.BIGINT)
     user_id = db.Column(db.BIGINT)
 
+    def __init__(self, post_id, comment_author, comment_content, comment_id=None,):
+        self.post_id = post_id
+        self.comment_author = comment_author
+        self.comment_content = comment_content
+        self.comment_id = comment_id
+        self.comment_date = datetime.now()
+
+    @staticmethod
+    def save(post_id, comment_author, comment_content):
+        comment = Comment(post_id, comment_author, comment_content)
+        db.session.add(comment)
+        db.session.commit()
+
+    def to_json(self):
+        return {
+            'comment_id': self.comment_id,
+            'post_id': self.post_id,
+            'comment_author': self.comment_author,
+            'comment_date': self.comment_date,
+            'comment_content': self.comment_content
+        }
+
 
 
 

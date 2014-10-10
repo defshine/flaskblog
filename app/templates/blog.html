@@ -2,7 +2,7 @@
 {% block blog_content %}
 <div class="blog-list-container-left-blog">
 
-    <h1><a href="#">{{ post.post_title }}</a></h1>
+    <h2 class="post-title" data-key="{{ post.post_id }}">{{ post.post_title }}</h2>
 
     <div>
         <span class="lead">by Admin</span>
@@ -15,6 +15,27 @@
         {% endautoescape %}
     </div>
     <hr>
+    <!-- the comments -->
+
+    <div class="comments-container">
+    </div>
+
+    <!-- the comment box -->
+    <div class="well">
+        <h4>Leave a Comment:</h4>
+
+        <form role="form">
+            <div class="form-group">
+                <input class="form-control comment-author" placeholder="name or email">
+                <textarea class="form-control comment-content" rows="3" placeholder="input you comment"></textarea>
+            </div>
+            <a href="#" class="btn btn-primary comment-submit">Submit</a>
+        </form>
+
+    </div>
+
+    <hr>
 </div>
+<script type="text/javascript" src="{{ url_for('static', filename='js/blog.js') }}"></script>
 {% endblock %}
 

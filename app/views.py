@@ -208,8 +208,29 @@ def save_post():
 
 @app.route('/post/<int:post_id>', methods=['GET'])
 @app.route('/index/post/<int:post_id>', methods=['GET'])
-@login_required
 def get_post_by_id(post_id):
     post = Post.query.filter_by(post_id=post_id).first()
     categories = Category.query.all()
-    return render_template('blog.html', title='Blog', post=post, categories=categories, user=current_user)
+    comments = Comment.query.filter_by(post_id=post_id).all()
+    return render_template('blog.html', title='Blog',
+                           post=post, categories=categories, comments=comments, user=current_user)
+
+
+@app.route('/comment', methods=['POST'])
+@app.route('/index/comment', methods=['POST'])
+def save_comment():
+    req = request.form
+    post_id = req.get('postId')
+    comment_author = req.get('commentAuthor')
+    comment_content = req.get('commentContent')
+    Comment.save(post_id, comment_author, comment_content)
+    return jsonify(status='200')
+
+
+@app.route('/comments', methods=['POST'])
+@app.route('/index/comments', methods=['POST'])
+def list_comment_by_post_id():
+    req = request.form
+    post_id = req.get('postId')
+    comments = Comment.query.filter_by(post_id=post_id).all()
+    return jsonify(status='200', comments=[c.to_json() for c in comments])
