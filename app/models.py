@@ -68,6 +68,7 @@ class Post(db.Model):
     def update(author_id, post_title, post_content, post_status, category_id, post_id):
 
         post = db.session.query(Post).filter(Post.post_id == post_id).first()
+        post.post_modified_date = datetime.now()
         if post is not None:
             if author_id is not None:
                 post.author_id = author_id
@@ -81,6 +82,11 @@ class Post(db.Model):
                 post.category_id = category_id
 
             db.session.commit()
+
+    @staticmethod
+    def delete(post_id):
+        db.session.query(Post).filter_by(post_id=post_id).delete()
+        db.session.commit()
 
     def to_json(self):
         return {

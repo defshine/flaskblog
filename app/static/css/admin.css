@@ -10,6 +10,10 @@ body {
     padding-top: 20px;
     padding-bottom: 20px;
 }
+.edit-post-content-wrap{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
 #new-post-content{
     height: 500px;
 }

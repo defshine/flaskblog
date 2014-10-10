@@ -23,6 +23,7 @@ It is same as [SpringBlog](https://github.com/defshine/SpringBlog),but implement
 3. Publish and save post
 4. Show blog list in index
 5. Show blog content
+6. Edit blog
 
 #Todo:
 1. Finish the basic blog function
@@ -31,8 +32,8 @@ It is same as [SpringBlog](https://github.com/defshine/SpringBlog),but implement
 
 #Deploy
 
-User gunicorn and supervisor to deploy this project on Ubuntu    
-Install gunicorn:  
+Use gunicorn and supervisor to deploy this project on Ubuntu    
+Install gunicorn and supervisor:  
 
 > $ sudo pip install gunicorn  
 > $ sudo pip install supervisor  

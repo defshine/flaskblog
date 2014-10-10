@@ -108,6 +108,15 @@ def admin_edit_post_by_id(post_id):
         return render_template('admin_edit_post.html',
                            post=post, categories=categories, user=current_user)
 
+
+@app.route('/admin/delete_post/<int:post_id>', methods=['GET'])
+@login_required
+def admin_delete_post_by_id(post_id):
+    Post.delete(post_id)
+    posts = Post.query.all()
+    return render_template('admin_posts.html', title='Admin', user=current_user,posts=posts)
+
+
 @app.route('/admin/categories')
 @login_required
 def admin_categories():
