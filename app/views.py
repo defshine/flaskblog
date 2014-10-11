@@ -86,6 +86,7 @@ def admin_get_post_by_id(post_id):
     post = Post.query.filter_by(post_id=post_id).first()
     return render_template('admin_post.html', post=post, user=current_user)
 
+
 @app.route('/admin/edit_post/<int:post_id>', methods=['GET'])
 @login_required
 def admin_edit_post_by_id(post_id):
@@ -240,3 +241,9 @@ def list_comment_by_post_id():
     post_id = req.get('postId')
     comments = Comment.list_comment_by_post_id(post_id)
     return jsonify(status='200', comments=comments)
+
+
+@app.route('/about')
+@app.route('/index/about')
+def about():
+    return render_template('about.html', title='about', user=current_user)

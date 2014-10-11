@@ -17,20 +17,20 @@ It is same as [SpringBlog](https://github.com/defshine/SpringBlog),but implement
   2. Bootstrap-3.2.0  
   3. Very simple editor [qeditor](https://github.com/huacnlee/jquery.qeditor)
 
-#Finish:    
-1. Login and remember me, user Flask-login  
-2. Admin Home
-3. Publish and save post
-4. Show blog list in index
-5. Show blog content
-6. Edit blog
+#Finish:  
+The basic function of blog:  
+  
+> Post:read,write,edit,delete  
+> Category:read,add,edit,delete  
+> Comment:read,add,delete
 
-#Todo:
-1. Finish the basic blog function
-2. Review python code and think more
-3. Write front with AngularJS instead of jQuery  
+#Todo:  
+1. Review python code and think more
+2. Write front with AngularJS instead of jQuery  
 
-#Deploy
+#Deploy  
+Create Schema on MySql,edit database setting in config.py    
+Then run init_db.py to init database  
 
 Use gunicorn and supervisor to deploy this project on Ubuntu    
 Install gunicorn and supervisor:  
