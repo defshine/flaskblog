@@ -10,6 +10,30 @@
 {% endblock %}
 
 {% block admin_content_right %}
-<h2>Comments</h2>
+     <div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">All Comments</div>
+  <!-- Table -->
+  <table class="table">
+      <thead>
+      <tr>
+          <td>Author</td>
+          <td>Content</td>
+          <td>Operation</td>
+      </tr>
+      </thead>
+      <tbody>
+      {% for c in comments %}
+          <tr>
+          <td>{{ c.comment_author }}</td>
+          <td>{{ c.comment_content }}</td>
+          <td>
+              <a href="/admin/delete_comment/{{ c.comment_id }}" class="btn bg-primary">Delete</a>
+          </td>
+          </tr>
+      {% endfor %}
+      </tbody>
+  </table>
+</div>
 
 {% endblock %}

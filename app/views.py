@@ -31,10 +31,6 @@ def load_user(user_id):
 
 @app.before_request
 def before_request():
-    """
-    if no user login, the current_user is AnonymousUserMixin object
-    :return:
-    """
     print current_user
 
 
@@ -100,13 +96,13 @@ def admin_edit_post_by_id(post_id):
         category = Category.query.filter_by(cat_id=category_id).first()
         if category is not None:
             return render_template('admin_edit_post.html',
-                           post=post, category=category, categories=categories, user=current_user)
+                                   post=post, category=category, categories=categories, user=current_user)
         else:
             return render_template('admin_edit_post.html',
-                           post=post, categories=categories, user=current_user)
+                                   post=post, categories=categories, user=current_user)
     else:
         return render_template('admin_edit_post.html',
-                           post=post, categories=categories, user=current_user)
+                               post=post, categories=categories, user=current_user)
 
 
 @app.route('/admin/delete_post/<int:post_id>', methods=['GET'])
@@ -173,7 +169,16 @@ def admin_delete_category(cat_id):
 @app.route('/admin/comments')
 @login_required
 def admin_comments():
-    return render_template('admin_comments.html', title='Admin', user=current_user)
+    comments = Comment.query.all()
+    return render_template('admin_comments.html', title='Admin', comments=comments, user=current_user)
+
+
+@app.route('/admin/delete_comment/<int:comment_id>')
+@login_required
+def admin_delete_comment(comment_id):
+    Comment.delete(comment_id)
+    comments = Comment.query.all()
+    return render_template('admin_comments.html', title='Admin', comments=comments, user=current_user)
 
 
 @app.route('/logout')
@@ -233,5 +238,5 @@ def save_comment():
 def list_comment_by_post_id():
     req = request.form
     post_id = req.get('postId')
-    comments = Comment.query.filter_by(post_id=post_id).all()
-    return jsonify(status='200', comments=[c.to_json() for c in comments])
+    comments = Comment.list_comment_by_post_id(post_id)
+    return jsonify(status='200', comments=comments)

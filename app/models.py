@@ -189,6 +189,11 @@ class Comment(db.Model):
         db.session.query(Comment).filter_by(post_id=post_id).delete()
         db.session.commit()
 
+    @staticmethod
+    def list_comment_by_post_id(post_id):
+        comments = Comment.query.filter_by(post_id=post_id).all()
+        return [c.to_json() for c in comments]
+
     def to_json(self):
         return {
             'comment_id': self.comment_id,
