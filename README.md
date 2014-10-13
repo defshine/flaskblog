@@ -27,6 +27,9 @@ The basic function of blog:
 #Todo:  
 1. Review python code and think more
 2. Write front with AngularJS instead of jQuery  
+3. Use Flask-Admin  
+4. Develop restfull api  
+5. Develop simple android app
 
 #Deploy  
 Create Schema on MySql,edit database setting in config.py    
