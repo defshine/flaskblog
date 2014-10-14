@@ -5,9 +5,10 @@ New dev branch
 Learn python and flask,just a tony blog system  
 It is same as [SpringBlog](https://github.com/defshine/SpringBlog),but implemented differently    
 
-#Use:  
+##Use:    
   
-##Backend:
+###Backend:  
+
   1. [Flask](http://flask.pocoo.org/)
   2. [Flask-SQLAlchemy](https://pythonhosted.org/Flask-SQLAlchemy/) ORM for mysql  
   3. [Flask-WTF](https://flask-wtf.readthedocs.org/en/latest/)
@@ -15,27 +16,26 @@ It is same as [SpringBlog](https://github.com/defshine/SpringBlog),but implement
   5. [Flask-Admin](http://flask-admin.readthedocs.org/en/latest/)  
   6. [Flask-Script](http://flask-script.readthedocs.org/en/latest/)
 
-##Web:
-  1. Jquery-1.11.1
-  2. Bootstrap-3.2.0  
-  3. Very simple editor [qeditor](https://github.com/huacnlee/jquery.qeditor)
+###Web:  
+  
+  1. Bootstrap-3.2.0  
+  2. [CKEditor](http://ckeditor.com/)
 
-#Finish:  
+##Finish:   
   
-1. Review python code and change project directory  
-  
-2.The basic function of blog:  
+1. Review python code and change project directory structure  
+2. The basic function of blog:  
   
 > Post:read,write,edit,delete  
 > Category:read,add,edit,delete  
 
 
-#Todo:  
+##Todo:  
 
 1. Develop restful api    
 2. Develop simple android app
 
-#Deploy  
+##Deploy  
 Create Schema on MySql,edit database setting in config.py  
 Run script to init database table:  
  
@@ -64,6 +64,6 @@ Look status:
 
 > $ sudo supervisorctl status
 
-#Connect me
+##Connect me  
 Life is short,you need python!
 if you are interested in this project, Join us!
