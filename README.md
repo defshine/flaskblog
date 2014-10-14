@@ -2,7 +2,8 @@ flaskblog
 =========
 
 Learn python and flask,just a tony blog system  
-It is same as [SpringBlog](https://github.com/defshine/SpringBlog),but implemented differently  
+It is same as [SpringBlog](https://github.com/defshine/SpringBlog),but implemented differently
+Add tag v0.1
 
 #Use:  
   
