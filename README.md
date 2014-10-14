@@ -2,7 +2,7 @@ flaskblog
 =========
 
 Learn python and flask,just a tony blog system  
-It is same as [SpringBlog](https://github.com/defshine/SpringBlog),but implemented differently    
+It is same as [SpringBlog](https://github.com/defshine/SpringBlog),but implemented differently  
 
 #Use:  
   
@@ -24,12 +24,10 @@ The basic function of blog:
 > Category:read,add,edit,delete  
 > Comment:read,add,delete
 
-#Todo:  
-1. Review python code and think more
-2. Write front with AngularJS instead of jQuery  
-3. New branch to use Flask-Admin  
-4. Develop restful api    
-5. Develop simple android app
+#Todo:      
+1. New branch is ok,ready to merge  
+2. Develop restful api    
+3. Develop simple android app
 
 #Deploy  
 Create Schema on MySql,edit database setting in config.py    
