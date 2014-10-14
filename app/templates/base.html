@@ -2,10 +2,6 @@
 <head>
     <title>{{ title }}-flaskblog</title>
     <link href="/static/css/lib/bootstrap.css" rel="stylesheet">
-    <link href="/static/css/lib/font-awesome.css" rel="stylesheet">
-    <link href="/static/css/lib/jquery.qeditor.css" rel="stylesheet">
-    <link href="/static/css/login.css" rel="stylesheet">
-    <link href="/static/css/admin.css" rel="stylesheet">
     <link href="/static/css/index.css" rel="stylesheet">
     <script type="text/javascript" src="{{ url_for('static', filename='js/lib/jquery-1.11.1.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='js/lib/bootstrap.js') }}"></script>
@@ -22,12 +18,12 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/index">FlaskBlog</a>
+            <a class="navbar-brand" href="/">FlaskBlog</a>
         </div>
 
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="/index">Home</a></li>
+                <li class="active"><a href="/">Home</a></li>
                 <li><a href="/about">About</a></li>
                 <li><a href="https://github.com/defshine/flaskblog">Fork</a></li>
                 <li><a href="https://github.com/defshine">Github</a></li>
