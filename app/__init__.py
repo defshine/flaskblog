@@ -1,18 +1,47 @@
 from flask import Flask
-from flask.ext.sqlalchemy import SQLAlchemy
+from app.core.admin import create_admin
+from app.core.models import db
 from flask.ext.login import LoginManager
 
-app = Flask(__name__)
-app.config.from_object('config')
-# for gunicorn
-from werkzeug.contrib.fixers import ProxyFix
-app.wsgi_app = ProxyFix(app.wsgi_app)
 
-login_manager = LoginManager()
-login_manager.init_app(app)
-login_manager.login_view = 'login'
+def create_app():
+    app = Flask(__name__)
+    app.config.from_object('config')
+    register_database(app)
+    register_blueprint(app)
+    init_login(app)
+    create_admin(app, db)
+    return app
 
 
-db = SQLAlchemy(app)
+def register_log():
+    import logging
+    logging.basicConfig()
+    logging.getLogger().setLevel(logging.DEBUG)
 
-from app import views, models
+
+def register_database(app):
+    db.init_app(app)
+    db.app = app
+
+
+def register_blueprint(app):
+    from app.core.views import bp
+    app.register_blueprint(bp)
+
+
+# Initialize flask-login
+def init_login(app):
+    login_manager = LoginManager()
+    login_manager.init_app(app)
+
+    # Create user loader function
+    @login_manager.user_loader
+    def load_user(user_id):
+        from app.core.models import User
+        return db.session.query(User).get(user_id)
+
+
+
+
+
