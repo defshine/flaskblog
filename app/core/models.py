@@ -15,6 +15,10 @@ class User(db.Model):
     user_mail = db.Column(db.Unicode(64))
     password = db.Column(db.Unicode(128))
 
+    def __init__(self, user_name, password):
+        self.user_name = user_name
+        self.password = password
+
    # Flask-Login integration
     def is_authenticated(self):
         return True
