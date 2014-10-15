@@ -52,9 +52,8 @@ New branch dev to develop restful api
  </table>  
    
 ##Todo   
-
-1. Develop restful api    
-2. Develop simple android app
+    
+1. Develop simple android app
 
 ##Deploy  
     
