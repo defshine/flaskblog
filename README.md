@@ -28,12 +28,12 @@ New branch dev to develop restful api
 1. Review python code and change project directory structure  
 2. The basic function of blog:  
   
-> Post:read,write,edit,delete  
-> Category:read,add,edit,delete  
+ > Post:read,write,edit,delete  
+ > Category:read,add,edit,delete  
   
 3. Use pluggable views develop simple restful api  
 
-<table>
+ <table>
     <tr>
         <td>URL</td>
         <td>Method</td>
@@ -49,52 +49,65 @@ New branch dev to develop restful api
         <td>GET</td>
         <td>Gives a posts by post_id</td>
     </tr>   
-</table>  
+ </table>  
    
 ##Todo   
 
 1. Develop restful api    
 2. Develop simple android app
 
-##Deploy    
- 
+##Deploy  
+    
 Create Schema on MySql,edit database setting in config.py  
-
 
 ###Deploy on virtualenv  
   
 Install virtualenv on Ubuntu  
- 
-> $ sudo install virtualenv
-  
-Then clone code and setup  
 
-> $ mkdir www  
-> $ cd www  
-> $ git clone https://github.com/defshine/flaskblog.git  
-> $ cd flaskblog  
-> $ virtualenv venv  
+```bash      
+$ sudo install virtualenv  
+```  
+
+Then clone code and setup  
+  
+```bash  
+$ mkdir www  
+$ cd www  
+$ git clone https://github.com/defshine/flaskblog.git  
+$ cd flaskblog  
+$ virtualenv venv  
+```
   
 Setup virtualenv  
   
-> $ . venv/bin/activate
+```bash      
+$ . venv/bin/activate
+```  
   
 Install packages:  
-
-> $ pip install -r requirements.txt  
-> $ pip install -I gunicorn  
+  
+```bash
+$ pip install -r requirements.txt  
+$ pip install -I gunicorn  
+```  
 
 Init database table:  
- 
-> python manage.py create_db
+  
+```bash   
+$ python manage.py create_db
+```  
 
 Create blog admin:  
- 
-> python manage.py create_user -u admin -p 123456  
   
+```  
+$ python manage.py create_user -u admin -p 123456  
+```  
+
 Run:  
   
-> $ gunicorn -b 0.0.0.0:8005 wsgi_gunicorn:app  
+```bash  
+$ gunicorn -b 0.0.0.0:8005 wsgi_gunicorn:app  
+```  
 
 Visit:  
   
@@ -105,34 +118,48 @@ Admin on http://127.0.0.1:5000/admin
 
 Use gunicorn and supervisor to deploy this project on Ubuntu  
 Install packages:    
-
-> $ pip install -r requirements.txt    
+  
+```bash
+$ pip install -r requirements.txt    
+```  
 
 Install gunicorn and supervisor:  
-
-> $ sudo pip install gunicorn  
-> $ sudo pip install supervisor  
+  
+```bash  
+$ sudo pip install gunicorn  
+$ sudo pip install supervisor  
+```
   
 Init database table:  
- 
-> python manage.py create_db
+  
+```bash  
+$ python manage.py create_db    
+```  
 
 Create blog admin:  
- 
-> python manage.py create_user -u admin -p 123456   
+  
+```bash  
+python manage.py create_user -u admin -p 123456   
+```  
   
 Copy supervisor config file:  
-
-> $ sudo cp flaskblog.conf /etc/supervisor/conf.d/ 
+  
+```bash
+$ sudo cp flaskblog.conf /etc/supervisor/conf.d/ 
+``` 
 
 Restart supervisor and start flaskblog:  
-  
-> $ sudo supervisorctl reload  
-> $ sudo supervisorctl start flaskblog  
+
+```bash  
+$ sudo supervisorctl reload  
+$ sudo supervisorctl start flaskblog  
+```  
 
 Look status:  
-
-> $ sudo supervisorctl status  
+  
+```bash
+$ sudo supervisorctl status  
+```  
 
 Visit:    
     
