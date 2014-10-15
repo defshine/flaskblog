@@ -3,6 +3,7 @@ flaskblog
 
 Learn python and flask,just a tony blog system  
 It is same as [SpringBlog](https://github.com/defshine/SpringBlog),but implemented differently  
+New branch dev to develop restful api
   
 ###Version:v0.2-dev  
 
