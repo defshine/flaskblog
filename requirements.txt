@@ -3,3 +3,4 @@ Flask-Admin>=1.0.8
 Flask-Login>=0.2.11
 Flask-SqlAlchemy>=2.0
 Flask-WTF>=0.10.2
+MySQL-python>=1.2.5
