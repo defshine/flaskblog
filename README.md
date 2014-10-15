@@ -38,13 +38,7 @@ It is same as [SpringBlog](https://github.com/defshine/SpringBlog),but implement
 ##Deploy    
  
 Create Schema on MySql,edit database setting in config.py  
-Run script to init database table:  
- 
-> python manage.py create_db
 
-Create blog admin:  
- 
-> python manage.py create_user -u admin -p 123456 
 
 ###Deploy on virtualenv  
   
@@ -69,6 +63,14 @@ Install packages:
 > $ pip install -r requirements.txt  
 > $ pip install -I gunicorn  
 
+Init database table:  
+ 
+> python manage.py create_db
+
+Create blog admin:  
+ 
+> python manage.py create_user -u admin -p 123456  
+  
 Run:  
   
 > $ gunicorn -b 0.0.0.0:8005 wsgi_gunicorn:app  
@@ -89,7 +91,15 @@ Install gunicorn and supervisor:
 
 > $ sudo pip install gunicorn  
 > $ sudo pip install supervisor  
+  
+Init database table:  
+ 
+> python manage.py create_db
 
+Create blog admin:  
+ 
+> python manage.py create_user -u admin -p 123456   
+  
 Copy supervisor config file:  
 
 > $ sudo cp flaskblog.conf /etc/supervisor/conf.d/ 

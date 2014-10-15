@@ -28,12 +28,6 @@ def clone():
         run("git clone https://github.com/defshine/flaskblog.git")
 
 
-def init_db():
-    code_dir = '/home/xin/www/flaskblog'
-    with cd(code_dir):
-        run("python init_db.py")
-
-
 def deploy():
     code_dir = '/home/xin/www/flaskblog'
     with cd(code_dir):
