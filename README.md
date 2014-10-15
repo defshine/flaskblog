@@ -75,8 +75,8 @@ Run:
 
 Visit:  
   
-Access on http://0.0.0.0:8000  
-Admin on http://0.0.0.0:8000/admin  
+Access on http://127.0.0.1:5000/      
+Admin on http://127.0.0.1:5000/admin     
 
 ###Deploy on Ubuntu directly
 
@@ -105,8 +105,8 @@ Look status:
 
 Visit:    
     
-Access on http://0.0.0.0:8000  
-Admin on http://0.0.0.0:8000/admin  
+Access on http://127.0.0.1:5000/    
+Admin on http://127.0.0.1:5000/admin    
 
 ## Version  
 
