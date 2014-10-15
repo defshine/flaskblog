@@ -61,12 +61,11 @@ class Post(db.Model):
     def to_json(self):
         return {
             'post_id': self.post_id,
-            'author_id': self.author_id,
+            'author': self.author.user_name,
             'post_date': self.post_date,
             'post_content': self.post_content,
             'post_title': self.post_title,
-            'post_status': self.comment_status,
-            'category_id': self.category_id,
+            'category': self.category.cat_name,
             'post_modified_date': self.post_modified_date,
         }
 

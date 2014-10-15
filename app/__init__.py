@@ -1,6 +1,7 @@
 from flask import Flask
 from app.core.admin import create_admin
 from app.core.models import db
+from app.core.api import register_api
 from flask.ext.login import LoginManager
 
 VERSION = (0, 2)
@@ -18,6 +19,7 @@ def create_app():
     app.config.from_object('config')
     register_database(app)
     register_blueprint(app)
+    register_api(app)
     init_login(app)
     create_admin(app, db)
     return app

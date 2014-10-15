@@ -30,7 +30,27 @@ New branch dev to develop restful api
   
 > Post:read,write,edit,delete  
 > Category:read,add,edit,delete  
+  
+3. Use pluggable views develop simple restful api  
 
+<table>
+    <tr>
+        <td>URL</td>
+        <td>Method</td>
+        <td>Description</td>
+    </tr>
+    <tr>
+        <td>/posts/</td>
+        <td>GET</td>
+        <td>Gives a list of all posts</td>
+    </tr>
+    <tr>
+        <td>/posts/post_id</td>
+        <td>GET</td>
+        <td>Gives a posts by post_id</td>
+    </tr>   
+</table>  
+   
 ##Todo   
 
 1. Develop restful api    
