@@ -3,6 +3,15 @@ from app.core.admin import create_admin
 from app.core.models import db
 from flask.ext.login import LoginManager
 
+VERSION = (0, 2)
+
+__version__ = ".".join(map(str, VERSION))
+__status__ = "Alpha"
+__description__ = "Simple blog system powered by Flask"
+__author__ = "defshine"
+__email__ = "crazyxin1988@gmail.com"
+__license__ = "MIT License"
+
 
 def create_app():
     app = Flask(__name__)

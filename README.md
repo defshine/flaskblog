@@ -29,12 +29,13 @@ Version:v0.2
 > Post:read,write,edit,delete  
 > Category:read,add,edit,delete  
 
-##Todo:  
+##Todo   
 
 1. Develop restful api    
 2. Develop simple android app
 
 ##Deploy  
+ 
 Create Schema on MySql,edit database setting in config.py  
 Run script to init database table:  
  
@@ -61,8 +62,18 @@ Restart supervisor and start flaskblog:
 
 Look status:  
 
-> $ sudo supervisorctl status
+> $ sudo supervisorctl status  
 
+## Version  
+
+v0.2  
+v0.1    
+ 
 ##Connect me  
+
 Life is short,you need python!
-If you are interested in this project, Join us!
+If you are interested in this project, Join us!  
+
+## License  
+
+This project is licensed under the [MIT license](http://opensource.org/licenses/MIT), see `LICENSE` for more details.
