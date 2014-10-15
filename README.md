@@ -3,7 +3,8 @@ flaskblog
 
 Learn python and flask,just a tony blog system  
 It is same as [SpringBlog](https://github.com/defshine/SpringBlog),but implemented differently  
-Version:v0.2  
+  
+###Version:v0.2-dev  
 
 ##Use:    
   
@@ -18,7 +19,7 @@ Version:v0.2
 
 ###Web:  
   
-  1. Bootstrap-3.2.0  
+  1. [Bootstrap-3.2.0](http://getbootstrap.com/)    
   2. [CKEditor](http://ckeditor.com/)
 
 ##Finish:   
@@ -70,16 +71,20 @@ Install packages:
 
 Run:  
   
-> $ gunicorn -b 0.0.0.0:8005 run:app  
+> $ gunicorn -b 0.0.0.0:8005 wsgi_gunicorn:app  
 
 Visit:  
   
-Access on http://0.0.0.0:8000
-Admin on http://0.0.0.0:8000/admin
+Access on http://0.0.0.0:8000  
+Admin on http://0.0.0.0:8000/admin  
 
-###Deploy on Ubuntu  
+###Deploy on Ubuntu directly
 
-Use gunicorn and supervisor to deploy this project on Ubuntu    
+Use gunicorn and supervisor to deploy this project on Ubuntu  
+Install packages:    
+
+> $ pip install -r requirements.txt    
+
 Install gunicorn and supervisor:  
 
 > $ sudo pip install gunicorn  
@@ -97,6 +102,11 @@ Restart supervisor and start flaskblog:
 Look status:  
 
 > $ sudo supervisorctl status  
+
+Visit:    
+    
+Access on http://0.0.0.0:8000  
+Admin on http://0.0.0.0:8000/admin  
 
 ## Version  
 
