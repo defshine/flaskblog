@@ -34,7 +34,7 @@ Version:v0.2
 1. Develop restful api    
 2. Develop simple android app
 
-##Deploy  
+##Deploy    
  
 Create Schema on MySql,edit database setting in config.py  
 Run script to init database table:  
@@ -44,6 +44,40 @@ Run script to init database table:
 Create blog admin:  
  
 > python manage.py create_user -u admin -p 123456 
+
+###Deploy on virtualenv  
+  
+Install virtualenv on Ubuntu  
+ 
+> $ sudo install virtualenv
+  
+Then clone code and setup  
+
+> $ mkdir www  
+> $ cd www  
+> $ git clone https://github.com/defshine/flaskblog.git  
+> $ cd flaskblog  
+> $ virtualenv venv  
+  
+Setup virtualenv  
+  
+> $ . venv/bin/activate
+  
+Install packages:  
+
+> $ pip install -r requirements.txt  
+> $ pip install -I gunicorn  
+
+Run:  
+  
+> $ gunicorn -b 0.0.0.0:8005 run:app  
+
+Visit:  
+  
+Access on http://0.0.0.0:8000
+Admin on http://0.0.0.0:8000/admin
+
+###Deploy on Ubuntu  
 
 Use gunicorn and supervisor to deploy this project on Ubuntu    
 Install gunicorn and supervisor:  
