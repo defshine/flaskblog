@@ -57,7 +57,7 @@ New branch dev to develop restful api
 
 ##Deploy  
     
-Pelease see project [wiki](https://github.com/defshine/flaskblog/wiki/Deploy-on-Ubuntu)  
+Pelease see project wiki [Deploy Flask App on Ubuntu with Gunicorn,Nginx,Supervisor](https://github.com/defshine/flaskblog/wiki/Deploy-Flask-App-on-Ubuntu-with-Gunicorn,Nginx,Supervisor)  
   
 
 ## Version  
