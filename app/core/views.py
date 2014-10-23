@@ -1,5 +1,6 @@
 from flask import Blueprint, render_template, redirect, url_for
 from models import Post, Category
+from models import cache
 from flask.ext.login import current_user, login_required, logout_user
 
 bp = Blueprint('blog', __name__)
@@ -16,6 +17,7 @@ def index(page=1):
     return render_template('index.html', title='Home', posts=posts, categories=categories, user=current_user)
 
 
+@cache.cached(timeout=50)
 @bp.route('/post/<int:post_id>', methods=['GET'])
 def get_post_by_id(post_id):
     post = Post.query.filter_by(post_id=post_id).first()

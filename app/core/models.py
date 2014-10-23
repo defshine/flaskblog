@@ -2,8 +2,10 @@ from datetime import datetime
 
 from flask.ext.sqlalchemy import SQLAlchemy
 from flask.ext.login import current_user
+from flask.ext.cache import Cache
 
 db = SQLAlchemy()
+cache = Cache()
 
 
 class User(db.Model):

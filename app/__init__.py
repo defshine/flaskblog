@@ -1,6 +1,6 @@
 from flask import Flask
 from app.core.admin import create_admin
-from app.core.models import db
+from app.core.models import db, cache
 from app.core.api import register_api
 from flask.ext.login import LoginManager
 
@@ -34,6 +34,7 @@ def register_log():
 def register_database(app):
     db.init_app(app)
     db.app = app
+    cache.init_app(app)
 
 
 def register_blueprint(app):
