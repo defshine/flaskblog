@@ -16,8 +16,9 @@ New branch dev to develop restful api
   3. [Flask-WTF](https://flask-wtf.readthedocs.org/en/latest/)
   4. [Flask-Login](https://flask-login.readthedocs.org/en/latest/)  
   5. [Flask-Admin](http://flask-admin.readthedocs.org/en/latest/)  
-  6. [Flask-Script](http://flask-script.readthedocs.org/en/latest/)
-
+  6. [Flask-Script](http://flask-script.readthedocs.org/en/latest/)  
+  7. [Flask-Cache](http://www.pythondoc.com/flask-cache/index.html)  
+  
 ###Web:  
   
   1. [Bootstrap-3.2.0](http://getbootstrap.com/)    
