@@ -61,7 +61,7 @@ You can access the [flaskblog](http://flaskblog.me/)
 
 ##Deploy  
     
-Pelease see project wiki [Deploy Flask App on Ubuntu(Virtualenv+Gunicorn+Nginx+Supervisor)](https://github.com/defshine/flaskblog/wiki/Deploy-Flask-App-on-Ubuntu-with-Gunicorn,Nginx,Supervisor)  
+Pelease see project wiki [Deploy Flask App on Ubuntu(Virtualenv+Gunicorn+Nginx+Supervisor)](https://github.com/defshine/flaskblog/wiki/Deploy-Flask-App-on-Ubuntu(Virtualenv-Gunicorn-Nginx-Supervisor))  
   
 
 ## Version  
