@@ -31,6 +31,7 @@ New branch dev to develop restful api
   
  > Post:read,write,edit,delete  
  > Category:read,add,edit,delete  
+ > Comment: use disqus
   
 3. Use pluggable views develop simple restful api  
 
@@ -58,7 +59,7 @@ New branch dev to develop restful api
 
 ##Deploy  
     
-Pelease see project wiki [Deploy Flask App on Ubuntu with Gunicorn,Nginx,Supervisor](https://github.com/defshine/flaskblog/wiki/Deploy-Flask-App-on-Ubuntu-with-Gunicorn,Nginx,Supervisor)  
+Pelease see project wiki [Deploy Flask App on Ubuntu(Virtualenv+Gunicorn+Nginx+Supervisor)](https://github.com/defshine/flaskblog/wiki/Deploy-Flask-App-on-Ubuntu-with-Gunicorn,Nginx,Supervisor)  
   
 
 ## Version  
