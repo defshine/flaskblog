@@ -12,13 +12,13 @@
     <!-- pager -->
     <ul class="pager text-info">
         {% if posts.has_prev %}
-            <li class="previous"><a href="{{ url_for('blog.index', page = posts.prev_num) }}">&larr; Pre</a> </li>
+            <li class="previous"><a href="/categories/{{ posts.items[0].category_id }}/posts?page={{posts.prev_num}}">&larr; Pre</a> </li>
         {% else %}
             <li class="previous disabled"><a href="#" >&larr; Pre</a></li>
         {% endif %}
         <li><span>{{ posts.page }}</span></li>
         {% if posts.has_next %}
-             <li class="next"><a href="{{ url_for('blog.index', page = posts.next_num) }}">Next &rarr;</a></li>
+             <li class="next"><a href="/categories/{{ posts.items[0].category_id }}/posts?page={{posts.next_num}}">Next &rarr;</a></li>
         {% else %}
             <li class="next disabled"><a  href="#">Next &rarr;</a></li>
         {% endif %}

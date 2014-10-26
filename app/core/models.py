@@ -92,8 +92,7 @@ class Category(db.Model):
         return {
             'cat_id': self.cat_id,
             'cat_name': self.cat_name,
-            'cat_description': self.cat_description,
-            'cat_parent': self.cat_parent
+            'cat_description': self.cat_description
         }
 
 

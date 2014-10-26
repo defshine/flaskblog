@@ -2,7 +2,10 @@
 {% block blog_content %}
 <div class="blog-list-container-left-blog">
 
-    <h2 class="post-title text-primary" data-key="{{ post.post_id }}">{{ post.post_title }}</h2>
+    <h2 class="post-title text-primary" data-key="{{ post.post_id }}">
+        <span class="text-info">[{{ post.category }}]</span>
+        {{ post.post_title }}
+    </h2>
 
     <div class="text-info">
         <span class="lead">by Admin</span>
@@ -29,4 +32,8 @@
     </script>
     <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 {% endblock %}
+
+
+
+
 

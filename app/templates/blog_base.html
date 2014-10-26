@@ -23,7 +23,7 @@
                     <div class="text-info">
                         <ul class="list-unstyled blog-list-container-right-category">
                             {% for c in categories %}
-                                <li><h4>{{ c.cat_name }}</h4></li>
+                                <li><a href="/categories/{{ c.cat_id }}/posts?page=1">{{ c.cat_name }}</a></li>
                             {% endfor %}
                         </ul>
                     </div>

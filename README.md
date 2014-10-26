@@ -29,14 +29,13 @@ You can access the [flaskblog](http://flaskblog.me/)
 
 ##Finish:   
   
-1. Review python code and change project directory structure  
-2. The basic function of blog:  
+####The basic function of blog:  
   
  > Post:read,write,edit,delete  
  > Category:read,add,edit,delete  
- > Comment: use disqus
-  
-3. Use pluggable views develop simple restful api  
+ > Comment: use disqus  
+     
+#####Develop simple restful api  
 
  <table>
     <tr>
@@ -45,20 +44,36 @@ You can access the [flaskblog](http://flaskblog.me/)
         <td>Description</td>
     </tr>
     <tr>
-        <td>/posts/</td>
+        <td>/api/posts</td>
         <td>GET</td>
         <td>Gives a list of all posts</td>
     </tr>
     <tr>
-        <td>/posts/post_id</td>
+        <td>/api/posts/post_id</td>
         <td>GET</td>
         <td>Gives a posts by post_id</td>
-    </tr>   
+    </tr>
+     <tr>
+        <td>/api/categories/category_id/posts</td>
+        <td>GET</td>
+        <td>Gives a list of posts by category_id</td>
+    </tr>  
+     <tr>
+        <td>/api/categories</td>
+        <td>GET</td>
+        <td>Gives a list of all categories</td>
+    </tr>
+    <tr>
+        <td>/api/categories/category_id</td>
+        <td>GET</td>
+        <td>Gives a categories by category_id</td>
+    </tr> 
  </table>  
    
 ##Todo   
     
-1. Develop simple android app
+1. Think more about restful api design  
+2. Develop simple android app
 
 ##Deploy  
     
