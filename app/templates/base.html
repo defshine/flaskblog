@@ -3,11 +3,16 @@
     <title>{{ title }}-flaskblog</title>
     <link href="/static/css/lib/bootstrap.css" rel="stylesheet">
     <link href="/static/css/index.css" rel="stylesheet">
+    <link href="/static/css/lib/material.css" rel="stylesheet">
+    <link href="/static/css/lib/ripples.css" rel="stylesheet">
+    <link href="/static/css/lib/material-wfont.css" rel="stylesheet">
     <script type="text/javascript" src="{{ url_for('static', filename='js/lib/jquery-1.11.1.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='js/lib/bootstrap.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/lib/material.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/lib/ripples.js') }}"></script>
 </head>
 <body>
-
+<div class="bs-component">
 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 
     <div class="container">
@@ -38,6 +43,7 @@
             </ul>
         </div>
     </div>
+</div>
 </div>
 {% block content %}
 {% endblock %}

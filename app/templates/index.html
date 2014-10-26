@@ -3,18 +3,18 @@
     <div class="blog-list-container-left-content">
         {% for post in posts.items %}
             <h1><a href="post/{{ post.post_id }}">{{ post.post_title }}</a></h1>
-            <div>
+            <div class="text-info">
                 <span class="lead">by Admin</span>
                 <span class="glyphicon glyphicon-time"></span> Posted on {{ post.post_date }}
             </div>
             <hr>
         {% endfor %}
     <!-- pager -->
-    <ul class="pager">
+    <ul class="pager text-info">
         {% if posts.has_prev %}
             <li class="previous"><a href="{{ url_for('blog.index', page = posts.prev_num) }}">&larr; Pre</a> </li>
         {% else %}
-            <li class="previous disabled"><a href="#">&larr; Pre</a></li>
+            <li class="previous disabled"><a href="#" >&larr; Pre</a></li>
         {% endif %}
         <li><span>{{ posts.page }}</span></li>
         {% if posts.has_next %}
@@ -23,5 +23,7 @@
             <li class="next disabled"><a  href="#">Next &rarr;</a></li>
         {% endif %}
     </ul>
+</ul>
+
     </div>
 {% endblock %}
