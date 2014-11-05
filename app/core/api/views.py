@@ -1,11 +1,12 @@
-from flask import jsonify, request
+from flask import jsonify
 from app.core.models import Post, Category
 from .import api
+from sqlalchemy import desc
 
 
 @api.route('/posts')
 def get_posts():
-    posts = Post.query.all()
+    posts = Post.query.order_by(desc(Post.post_date)).all()
     return jsonify(status='200', posts=[p.to_json() for p in posts])
 
 
@@ -17,7 +18,7 @@ def get_posts_by_id(post_id):
 
 @api.route('/categories/<int:category_id>/posts')
 def get_posts_by_category_id(category_id):
-    posts = Post.query.filter_by(category_id=category_id).all()
+    posts = Post.query.filter_by(category_id=category_id).order_by(desc(Post.post_date)).all()
     return jsonify(status='200', posts=[p.to_json() for p in posts])
 
 

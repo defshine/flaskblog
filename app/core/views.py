@@ -2,6 +2,7 @@ from flask import Blueprint, render_template, redirect, url_for, request
 from models import Post, Category
 from models import cache
 from flask.ext.login import current_user, login_required, logout_user
+from sqlalchemy import desc
 
 bp = Blueprint('blog', __name__)
 
@@ -12,7 +13,7 @@ POSTS_PER_PAGE = 5
 @bp.route('/')
 @bp.route('/<int:page>')
 def index(page=1):
-    posts = Post.query.paginate(page, POSTS_PER_PAGE, False)
+    posts = Post.query.order_by(desc(Post.post_date)).paginate(page, POSTS_PER_PAGE, False)
     categories = Category.query.all()
     return render_template('index.html', title='Home', posts=posts, categories=categories, user=current_user)
 
@@ -20,7 +21,7 @@ def index(page=1):
 @bp.route('/categories/<int:category_id>/posts')
 def get_post_by_category(category_id):
     page = int(request.args.get('page'))
-    posts = Post.query.filter_by(category_id=category_id).paginate(page, POSTS_PER_PAGE, False)
+    posts = Post.query.filter_by(category_id=category_id).order_by(desc(Post.post_date)).paginate(page, POSTS_PER_PAGE, False)
     categories = Category.query.all()
     return render_template('category_blog.html', title='Home', posts=posts, categories=categories, user=current_user)
 
