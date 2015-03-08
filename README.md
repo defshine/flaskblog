@@ -33,7 +33,8 @@ You can access the [flaskblog](http://flaskblog.me/)
   
  > Post:read,write,edit,delete  
  > Category:read,add,edit,delete  
- > Comment: use disqus  
+ > Comment: use duoshuo  
+ > Blogroll: add,list
      
 ####Develop simple restful api  
 

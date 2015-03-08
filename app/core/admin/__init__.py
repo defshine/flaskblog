@@ -1,6 +1,6 @@
 from flask.ext.admin import Admin
-from app.core.models import User, Post, Category
-from app.core.admin.views import AdminUserView, AdminIndexView, AdminPostView, AdminCategoryView
+from app.core.models import User, Post, Category, Blogroll
+from app.core.admin.views import AdminUserView, AdminIndexView, AdminPostView, AdminCategoryView, AdminBlogrollView
 
 
 def create_admin(app=None, db=None):
@@ -8,3 +8,4 @@ def create_admin(app=None, db=None):
     admin.add_view(AdminUserView(User, db.session))
     admin.add_view(AdminPostView(Post, db.session))
     admin.add_view(AdminCategoryView(Category, db.session))
+    admin.add_view(AdminBlogrollView(Blogroll, db.session))

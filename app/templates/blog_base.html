@@ -30,9 +30,13 @@
                 </div>
                 <!-- /well -->
                 <div class="well">
-                    <h4 class="text-primary">More</h4>
+                    <h4 class="text-primary">Blogroll</h4>
 
-                    <p class="text-info">Coming soon</p>
+                        <ul class="list-unstyled">
+                            {% for b in blogrolls %}
+                                <li><a href="{{ b.br_url }}">{{ b.br_name }}</a></li>
+                            {% endfor %}
+                        </ul>
                 </div>
                 <!-- /well -->
             </div>

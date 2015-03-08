@@ -96,5 +96,27 @@ class Category(db.Model):
         }
 
 
+class Blogroll(db.Model):
+
+    __tablename__ = 'blogroll'
+
+    br_id = db.Column(db.BIGINT, primary_key=True, autoincrement=True)
+    br_name = db.Column(db.Unicode(128))
+    br_url = db.Column(db.Unicode(256))
+
+    def __unicode__(self):
+        return self.br_name
+
+    @staticmethod
+    def list_blogroll():
+        blogrolls = Blogroll.query.all()
+        return [b.to_json() for b in blogrolls]
+
+    def to_json(self):
+        return {
+            'br_id': self.br_id,
+            'br_name': self.br_name,
+            'br_url': self.br_url
+        }
 
 

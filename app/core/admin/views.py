@@ -107,6 +107,27 @@ class AdminCategoryView(sqla.ModelView):
         return current_user.is_authenticated()
 
 
+class AdminBlogrollView(sqla.ModelView):
+
+    column_display_pk = True
+
+    # Enable model creation
+    can_create = True
+
+    # Override displayed fields
+    column_list = ('br_id', 'br_name', 'br_url')
+    column_labels = dict(br_id='Id', br_name='Blogroll Name', br_url='Blogroll Url')
+
+    form_columns = ('br_name', 'br_url')
+
+    column_filters = ('br_name', 'br_url')
+    # add form validate
+    form_args = dict(
+        cat_name=dict(label='Blogroll Name', validators=[validators.required()]),
+        cat_description=dict(label='Blogroll Url', validators=[validators.required()]))
+
+    def is_accessible(self):
+        return current_user.is_authenticated()
 
 
 
