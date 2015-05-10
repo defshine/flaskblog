@@ -1,12 +1,10 @@
 flaskblog
 =========
 
-Learn python and flask,just a tony blog system  
-It is same as [SpringBlog](https://github.com/defshine/SpringBlog),but implemented differently  
-  
-You can access the [flaskblog](http://flaskblog.me/)  
+Learn python and flask,just a tony blog system based on flask and mysql  
+It is similar to [cleanblog](https://github.com/defshine/cleanblog), a blog system based on flask and mongoengine  
 
-  
+
 ###Version:v0.2-dev  
 
 ##Use:    
@@ -25,7 +23,7 @@ You can access the [flaskblog](http://flaskblog.me/)
   
   1. [Bootstrap-3.2.0](http://getbootstrap.com/)  
   2. [bootstrap-material-design](https://github.com/FezVrasta/bootstrap-material-design)      
-  3. [CKEditor](http://ckeditor.com/)
+  3. [CKEditor 4.4.7_standard](http://ckeditor.com/)
 
 ##Finish:   
   
